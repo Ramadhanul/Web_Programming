@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        CALCULATOR
+    </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+        function rekursi() {
+            var bil1 = parseInt(document.getElementById("bil1").value);
+            if (bil1 == 1) {
+                return 1;
+            }
+            if (bil1 == 0) {
+                return 0;
+            }
+            if (bil1 < 0) {
+                alert ("Tidak boleh minus");
+            }
+            else {
+                return bil1 + (bil1 - 1);
+            }
+
+            return hasil;
+        }
+        function bentuk() {
+            var bil1 = parseInt(document.getElementById("bil1").value);
+            let i, j, k;
+
+            for (i = 1; i <= bil1; i++) {
+                for (j = bil1; j > i; j--) {
+                    document.write("&nbsp")
+                }
+                for (k = 1; k <= i; k++) {
+                    document.write("*")
+                }
+                document.write("<br>")
+            }
+            if (bil1 == 0) {
+                return 0;}
+        }
+
+
+        function cetak()//seperti void
+        {
+            document.getElementById("hasil").innerHTML = rekursi();
+        }
+
+        function lihat()//seperti void 
+        {
+            document.getElementById("tingkat").innerHTML = bentuk();
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-group">
+            <label for="bil1">Berapa tingkat kaleng yang ingin dibuat ? :</label>
+            <input class="form-control" type="number" id="bil1" name="bil1" placeholder="Tingkat" min="0">
+            <button class="btn btn-success" onclick="cetak();">Hasil</button>
+            <button class="btn btn-success" onclick="lihat();">Lihat</button>
+        </div>
+        <h2>Kaleng yang dibutuhkan :
+            <div id="hasil"></div>
+            <div id="tingkat"></div>
+        </h2>
+    </div>
+</body>
+
+</html>
